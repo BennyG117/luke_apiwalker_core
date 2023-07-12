@@ -14,7 +14,6 @@ const OnePerson = () => {
   // ************** END OF CSS *************
   // ***************************************
 
-  //TODO: Will need to adjust based on axios.get?
   const { category, id } = useParams();
 
   const [info, setInfo] = useState("");
@@ -22,7 +21,7 @@ const OnePerson = () => {
   const navigator = useNavigate();
 
 
-  //TODO: Adjust param being entered so it's referencing a number instead of a person name
+
   const getPersonData = () => {
     console.log(category, id);
     // axios.get(`https://swapi.dev/api/people/${person}`)

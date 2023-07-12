@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom';
 import ObiImage from './image.jsx';
 
+//TODO: ERRO getting the Obi-Wan images to work (tried url and tried jpg, still no success)
+
 const Error = () => {
 
     
