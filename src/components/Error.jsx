@@ -10,8 +10,8 @@ const Error = () => {
     
     return (
         <div>
-        <h2>These are not the droid you're looking for...</h2>
-        <img src={ObiImage} alt="Obi-Wan Kenobi"/>
+        <h2>These are not the droids you're looking for...</h2>
+        <ObiImage/>
     </div>
   )
 }

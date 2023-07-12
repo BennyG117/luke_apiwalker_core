@@ -16,7 +16,8 @@ const OnePerson = () => {
 
   const { category, id } = useParams();
 
-  const [info, setInfo] = useState("");
+  const [info, setInfo] = useState({});
+  // const [info, setInfo] = useState("");
 
   const navigator = useNavigate();
 
@@ -31,13 +32,13 @@ const OnePerson = () => {
       .catch((err) => navigator('/Error'));
   };
 
-  useEffect(getPersonData, []);
+  //! >>SOLVED<< implement use effect to match useParams so it knows when to change*
+  useEffect(getPersonData, [category, id]);
 
   // need to refer to ternary from practice hw*
   return (
     <div>
-        {/* //TODO: Determine why importing the search bar doesn't function properly when added to the top of the results page* */}
-        {/* <SearchEither/> */}
+        {/* Determine why importing the search bar doesn't function properly when added to the top of the results page */}
       {category == "people" ? (
         <div>
             <h2>{info.name}</h2>

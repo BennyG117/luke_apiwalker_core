@@ -14,9 +14,13 @@ const SearchEither = () => {
 
     const [query, setQuery] = useState({category: "people", id: ""});
     
+
+
     const navigator = useNavigate();
 
     const searchPerson = () => {
+    // const searchPerson = (e) => {
+        // e.preventDefault();
         console.log(query.category);
         console.log(query.id);
         navigator(`/one/${query.category}/${query.id}`);
@@ -68,12 +72,13 @@ const SearchEither = () => {
 // ************** END OF CSS *************
 // ***************************************  
 
-//TODO: Confirm/Adjust DropSelections options so the people & planets values impact search params
 
-//TODO: EEROR FOUND - input section allows for minimal typing*
+//(SOLVED - removed styled components)EEROR FOUND - input section allows for minimal typing*
+//TODO: search button was changed so much, don't remember what I had
 
   return (
-    <div>
+    // <form onSubmit={searchPerson}> </form>
+      <div>
       <label> Search For: </label>
       <select name="category" onChange={handleChange} >
         <option value="people">People</option>
@@ -82,10 +87,11 @@ const SearchEither = () => {
 
       <label>ID: </label>
 
-
       <input type="text" name="id" onChange={handleChange}/>
+      {/* <input type="submit" value="Search"/> */}
+      {/* <SearchButton type="submit" > Search</SearchButton> */}
       <SearchButton onClick={searchPerson}> Search</SearchButton>
-    </div>
+      </div>
   );
 };
 
