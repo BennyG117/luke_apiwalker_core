@@ -7,12 +7,19 @@ import { useNavigate } from "react-router-dom";
 
 const SearchEither = () => {
 
-    const [query, setQuery] = useState("");
+    const handleChange = (e) => {
+        const {name, value} = e.target
+        setQuery (currentData => ({...currentData, [name]:value}))
+    }
+
+    const [query, setQuery] = useState({category: "people", id: ""});
     
     const navigator = useNavigate();
 
     const searchPerson = () => {
-        navigator(`/one/people/${query}`);
+        console.log(query.category);
+        console.log(query.id);
+        navigator(`/one/${query.category}/${query.id}`);
     };
     
     
@@ -56,35 +63,29 @@ const SearchEither = () => {
     flex-direction: row;
     justify-content: center;
     min-height: 30px;
-    font-size: large;
   `;
 // ***************************************  
 // ************** END OF CSS *************
 // ***************************************  
 
-//TODO: Confirm/Adjust DropSelections options so the people & planet values impact search params
+//TODO: Confirm/Adjust DropSelections options so the people & planets values impact search params
 
 //TODO: EEROR FOUND - input section allows for minimal typing*
 
   return (
-    <Container>
+    <div>
       <label> Search For: </label>
-      <DropSelection>
-        <option value="{people}">People</option>
-        <option value="{planet}">Planet</option>
-      </DropSelection>
+      <select name="category" onChange={handleChange} >
+        <option value="people">People</option>
+        <option value="planets">Planets</option>
+      </select>
 
       <label>ID: </label>
 
-      {/* ERROR HERE - input tag will only allow 1 letter or number typed before searching */}
-{/* 
-      onChange={(e) => setQuery(e.target.value)} 
- value={query} */}
-      
-      <IdInput type="text" onChange={(e) => setQuery(e.target.value)} 
- value={query}/>
+
+      <input type="text" name="id" onChange={handleChange}/>
       <SearchButton onClick={searchPerson}> Search</SearchButton>
-    </Container>
+    </div>
   );
 };
 

@@ -2,7 +2,7 @@ import './App.css';
 import {Route, Routes, Link} from "react-router-dom";
 import SearchEither from "./components/SearchEither";
 import OnePerson from "./components/OnePerson";
-import OnePlanet from "./components/OnePlanet";
+import Error from "./components/Error";
 
 
 
@@ -22,8 +22,8 @@ function App() {
     <Routes>
     {/* <Route path="/" element={<Home/>}></Route> */}
     <Route path="/searchEither" element={<SearchEither/>} ></Route>
-    <Route path="/one/:people/:id" element={<OnePerson/>}></Route>
-    <Route path="/one/:planet/${}" element={<OnePlanet/>}></Route>
+    <Route path="/one/:category/:id" element={<OnePerson/>}></Route>
+    <Route path="/Error" element={<Error/>} ></Route>
     </Routes>
 
 
